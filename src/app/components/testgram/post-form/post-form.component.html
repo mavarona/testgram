@@ -1,0 +1,15 @@
+<form action="" (submit)="addPost()">
+    <div class="form-group">
+        <label for="caption">Caption</label>
+        <input type="text" id="caption" class="form-control" [(ngModel)]="caption" name="caption">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="text" id="description" class="form-control" [(ngModel)]="description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">Image</label>
+        <input type="text" id="imageUrl" class="form-control" [(ngModel)]="imageUrl" name="imageUrl">
+    </div>
+    <button class="btn btn-primary">Add Post</button>
+</form>

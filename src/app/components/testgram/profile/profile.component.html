@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col">
+        <app-post-form (add)="addPost($event)"></app-post-form>
+        <app-summary></app-summary>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <app-post-list [posts]="posts"></app-post-list>
+    </div>
+</div>
