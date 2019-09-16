@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { PostService } from "src/app/services/post.service";
 
 @Component({
   selector: "app-post-form",
@@ -6,13 +7,11 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./post-form.component.css"]
 })
 export class PostFormComponent implements OnInit {
-  @Output() add = new EventEmitter();
-
   caption: string = "";
   description: string = "";
   imageUrl: string = "";
 
-  constructor() {}
+  constructor(private postService: PostService) {}
 
   ngOnInit() {}
 
@@ -22,6 +21,13 @@ export class PostFormComponent implements OnInit {
       description: this.description,
       imageUrl: this.imageUrl
     };
-    this.add.emit(post);
+    this.postService.addPost(post);
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.caption = "";
+    this.description = "";
+    this.imageUrl = "";
   }
 }
