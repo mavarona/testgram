@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PostService } from "src/app/services/post.service";
+import { MessageService } from "src/app/services/message.service";
 
 @Component({
   selector: "app-post-form",
@@ -11,7 +12,10 @@ export class PostFormComponent implements OnInit {
   description: string = "";
   imageUrl: string = "";
 
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit() {}
 
@@ -21,8 +25,10 @@ export class PostFormComponent implements OnInit {
       description: this.description,
       imageUrl: this.imageUrl
     };
-    this.postService.addPost(post);
-    this.clearForm();
+    this.postService.addPost(post).subscribe(() => {
+      this.messageService.setMsg({ msg: "Post Added", type: "success" });
+      this.clearForm();
+    });
   }
 
   clearForm() {

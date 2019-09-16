@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/shared/header/header.component";
@@ -12,6 +13,7 @@ import { SummaryComponent } from "./components/testgram/profile/summary/summary.
 import { PostListComponent } from "./components/testgram/profile/post-list/post-list.component";
 import { PostItemComponent } from "./components/testgram/profile/post-list/post-item/post-item.component";
 import { PostFormComponent } from "./components/testgram/post-form/post-form.component";
+import { GlobalAlertComponent } from './components/shared/global-alert/global-alert.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { PostFormComponent } from "./components/testgram/post-form/post-form.com
     SummaryComponent,
     PostListComponent,
     PostItemComponent,
-    PostFormComponent
+    PostFormComponent,
+    GlobalAlertComponent
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
