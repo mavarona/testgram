@@ -1,7 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/shared/header/header.component";
@@ -13,7 +14,29 @@ import { SummaryComponent } from "./components/testgram/profile/summary/summary.
 import { PostListComponent } from "./components/testgram/profile/post-list/post-list.component";
 import { PostItemComponent } from "./components/testgram/profile/post-list/post-item/post-item.component";
 import { PostFormComponent } from "./components/testgram/post-form/post-form.component";
-import { GlobalAlertComponent } from './components/shared/global-alert/global-alert.component';
+import { GlobalAlertComponent } from "./components/shared/global-alert/global-alert.component";
+import { LoginComponent } from "./components/login/login.component";
+import { RegisterComponent } from "./components/register/register.component";
+
+const routes: Routes = [
+  {
+    path: "home",
+    component: TestgramComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "register",
+    component: RegisterComponent
+  },
+  {
+    path: "",
+    redirectTo: "/home",
+    pathMatch: "full"
+  }
+];
 
 @NgModule({
   declarations: [
@@ -27,9 +50,17 @@ import { GlobalAlertComponent } from './components/shared/global-alert/global-al
     PostListComponent,
     PostItemComponent,
     PostFormComponent,
-    GlobalAlertComponent
+    GlobalAlertComponent,
+    LoginComponent,
+    RegisterComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

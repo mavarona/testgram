@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Register</h2>
+        <hr>
+        <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('name').touched && registerForm.get('name').invalid}" id="name" formControlName="name">
+                <span class="invalid-feedback">Name can't be blank</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('email').touched && registerForm.get('email').invalid}" id="email" formControlName="email">
+                <span class="invalid-feedback">
+          <span *ngIf="registerForm.get('email').hasError('required')">Email can't be blank</span>
+                <span *ngIf="registerForm.get('email').hasError('email')">Email must be valid</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('username').touched &&
+                  registerForm.get('username').invalid}" id="username" formControlName="username">
+                <span class="invalid-feedback">Username can't be blank</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('password').touched &&
+                  registerForm.get('password').invalid}" id="password" formControlName="password">
+                <span *ngIf="registerForm.get('password').hasError('required')" class="invalid-feedback">Password can't be
+          blank</span>
+                <span *ngIf="registerForm.get('password').hasError('minlength')" class="invalid-feedback">Password must
+          have
+          minimum
+          {{ registerForm.get('password').errors.minlength.requiredLength }} characteres</span>
+                <span *ngIf="registerForm.get('password').hasError('symbol')" class="invalid-feedback">Password must
+          have
+          @</span>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" [ngClass]="{ 'is-invalid': registerForm.get('confirmPassword').dirty &&
+                  registerForm.get('confirmPassword').invalid}" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+                <span class="invalid-feedback">Password must match</span>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" [disabled]="registerForm.invalid">Register</button>
+        </form>
+    </div>
+</div>
