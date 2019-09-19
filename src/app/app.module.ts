@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/shared/header/header.component";
@@ -20,8 +21,17 @@ import { RegisterComponent } from "./components/register/register.component";
 
 const routes: Routes = [
   {
+    path: "",
+    pathMatch: "full",
+    redirectTo: "/login"
+  },
+  {
     path: "home",
     component: TestgramComponent
+  },
+  {
+    path: "post/add",
+    component: PostFormComponent
   },
   {
     path: "login",
@@ -56,6 +66,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
