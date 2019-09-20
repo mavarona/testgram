@@ -4,17 +4,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
+import { TestgramModule } from "./components/testgram/testgram.module";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/shared/header/header.component";
 import { FooterComponent } from "./components/shared/footer/footer.component";
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
-import { TestgramComponent } from "./components/testgram/testgram.component";
-import { ProfileComponent } from "./components/testgram/profile/profile.component";
-import { SummaryComponent } from "./components/testgram/profile/summary/summary.component";
-import { PostListComponent } from "./components/testgram/profile/post-list/post-list.component";
-import { PostItemComponent } from "./components/testgram/profile/post-list/post-item/post-item.component";
-import { PostFormComponent } from "./components/testgram/post-form/post-form.component";
 import { GlobalAlertComponent } from "./components/shared/global-alert/global-alert.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
@@ -25,12 +20,6 @@ import { RegisterComponent } from "./components/register/register.component";
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
-    TestgramComponent,
-    ProfileComponent,
-    SummaryComponent,
-    PostListComponent,
-    PostItemComponent,
-    PostFormComponent,
     GlobalAlertComponent,
     LoginComponent,
     RegisterComponent
@@ -41,7 +30,8 @@ import { RegisterComponent } from "./components/register/register.component";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TestgramModule
   ],
   providers: [],
   bootstrap: [AppComponent]
