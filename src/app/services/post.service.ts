@@ -14,6 +14,10 @@ export class PostService {
 
   constructor(private _http: HttpClient) {}
 
+  getSinglePost(id): Observable<Post> {
+    return this._http.get<Post>(this.apiUrl + "/" + id);
+  }
+
   getPost(): Observable<Array<Post>> {
     return this._http.get<Array<Post>>(this.apiUrl);
   }

@@ -9,6 +9,7 @@ import { SummaryComponent } from "./profile/summary/summary.component";
 import { PostListComponent } from "./profile/post-list/post-list.component";
 import { PostItemComponent } from "./profile/post-list/post-item/post-item.component";
 import { PostFormComponent } from "./post-form/post-form.component";
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PostFormComponent } from "./post-form/post-form.component";
     SummaryComponent,
     PostListComponent,
     PostItemComponent,
-    PostFormComponent
+    PostFormComponent,
+    PostDetailComponent
   ],
   imports: [CommonModule, FormsModule, TestgramRoutingModule],
   exports: [TestgramComponent]
