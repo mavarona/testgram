@@ -1,1 +1,5 @@
-<p *ngIf="post">{{ post | json}}</p>
+<div *ngIf="post" class="col-md-8 offset-md-2">
+    <h3>{{post.caption | uppercase}}</h3>
+    <p>{{post.description}}</p>
+    <img class="img-thumbnail" [src]="post.imageUrl" [alt]="post.caption">
+</div>

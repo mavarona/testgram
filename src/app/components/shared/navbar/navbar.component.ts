@@ -8,9 +8,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
+  user: any = null;
+
   constructor(private _authService: AuthService, private _router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this._authService.checkUser();
+  }
 
   logout() {
     this._authService.logout();

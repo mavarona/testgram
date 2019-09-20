@@ -10,6 +10,7 @@ import { PostListComponent } from "./profile/post-list/post-list.component";
 import { PostItemComponent } from "./profile/post-list/post-item/post-item.component";
 import { PostFormComponent } from "./post-form/post-form.component";
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     PostListComponent,
     PostItemComponent,
     PostFormComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    HighlightDirective
   ],
   imports: [CommonModule, FormsModule, TestgramRoutingModule],
   exports: [TestgramComponent]
