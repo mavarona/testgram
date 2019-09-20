@@ -11,6 +11,8 @@ import { PostItemComponent } from "./profile/post-list/post-item/post-item.compo
 import { PostFormComponent } from "./post-form/post-form.component";
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { MyUppercasePipe } from './pipes/my-uppercase.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HighlightDirective } from './directives/highlight.directive';
     PostItemComponent,
     PostFormComponent,
     PostDetailComponent,
-    HighlightDirective
+    HighlightDirective,
+    MyUppercasePipe,
+    SearchPipe
   ],
   imports: [CommonModule, FormsModule, TestgramRoutingModule],
   exports: [TestgramComponent]

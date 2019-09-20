@@ -10,6 +10,7 @@ import { Post } from "src/app/models/post";
 })
 export class PostListComponent implements OnInit {
   posts: Array<Post> = new Array<Post>();
+  query = "";
 
   constructor(
     private postService: PostService,
