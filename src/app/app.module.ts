@@ -2,8 +2,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/shared/header/header.component";
@@ -18,35 +18,6 @@ import { PostFormComponent } from "./components/testgram/post-form/post-form.com
 import { GlobalAlertComponent } from "./components/shared/global-alert/global-alert.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
-
-const routes: Routes = [
-  {
-    path: "",
-    pathMatch: "full",
-    redirectTo: "/login"
-  },
-  {
-    path: "home",
-    component: TestgramComponent
-  },
-  {
-    path: "post/add",
-    component: PostFormComponent
-  },
-  {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path: "register",
-    component: RegisterComponent
-  },
-  {
-    path: "",
-    redirectTo: "/home",
-    pathMatch: "full"
-  }
-];
 
 @NgModule({
   declarations: [
@@ -70,7 +41,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
