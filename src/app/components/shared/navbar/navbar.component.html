@@ -9,7 +9,7 @@
 
     <nav class="my-2 my-md-0 mr-md-3">
     </nav>
-    <a class="btn btn-primary btn-sm" routerLink="/login">Login</a>
-    <a class="btn btn-default btn-sm" routerLink="/register">Sign up</a>
-    <button class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
+    <a *ngIf="!user" class="btn btn-primary btn-sm" routerLink="/login">Login</a>
+    <a *ngIf="!user" class="btn btn-default btn-sm" routerLink="/register">Sign up</a>
+    <button *ngIf="user" class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
 </div>
