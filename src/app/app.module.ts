@@ -13,6 +13,7 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { GlobalAlertComponent } from "./components/shared/global-alert/global-alert.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from "./components/register/register.component";
     NavbarComponent,
     GlobalAlertComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

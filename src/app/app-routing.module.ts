@@ -5,6 +5,7 @@ import { TestgramComponent } from "./components/testgram/testgram.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { PostFormComponent } from "./components/testgram/post-form/post-form.component";
+import { PageNotFoundComponent } from "./components/shared/page-not-found/page-not-found.component";
 
 const routes = [
   {
@@ -27,6 +28,10 @@ const routes = [
   {
     path: "register",
     component: RegisterComponent
+  },
+  {
+    path: "**",
+    component: PageNotFoundComponent
   }
 ];
 
