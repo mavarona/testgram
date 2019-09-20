@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
+import { MessageService } from "../../services/message.service";
 
 @Component({
   selector: "app-login",
@@ -9,14 +11,22 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   model: any = {};
 
-  constructor(private _router: Router) {}
+  constructor(
+    private _router: Router,
+    private _authService: AuthService,
+    private _messageService: MessageService
+  ) {}
 
   ngOnInit() {}
 
   login() {
-    const { username, password } = this.model;
-    if (username === "admin" && password === "admin") {
+    if (this._authService.login(this.model)) {
       this._router.navigate(["/profile"]);
+    } else {
+      this._messageService.setMsg({
+        msg: "Invalid credentials",
+        type: "danger"
+      });
     }
   }
 }

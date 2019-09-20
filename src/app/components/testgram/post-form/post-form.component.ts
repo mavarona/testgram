@@ -11,6 +11,7 @@ export class PostFormComponent implements OnInit {
   caption: string = "";
   description: string = "";
   imageUrl: string = "";
+  formDirty: boolean = false;
 
   constructor(
     private postService: PostService,
@@ -18,6 +19,10 @@ export class PostFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  handleChange() {
+    this.formDirty = true;
+  }
 
   addPost(): void {
     const post = {
@@ -35,5 +40,6 @@ export class PostFormComponent implements OnInit {
     this.caption = "";
     this.description = "";
     this.imageUrl = "";
+    this.formDirty = false;
   }
 }
