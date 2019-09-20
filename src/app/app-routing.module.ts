@@ -1,11 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { TestgramComponent } from "./components/testgram/testgram.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
-import { PostFormComponent } from "./components/testgram/post-form/post-form.component";
 import { PageNotFoundComponent } from "./components/shared/page-not-found/page-not-found.component";
+import { TestgramComponent } from "./components/testgram/testgram.component";
 
 const routes = [
   {
@@ -14,12 +13,12 @@ const routes = [
     redirectTo: "/login"
   },
   {
-    path: "home",
-    component: TestgramComponent
-  },
-  {
-    path: "post/add",
-    component: PostFormComponent
+    path: "profile",
+    component: TestgramComponent,
+    loadChildren: () =>
+      import("./components/testgram/testgram.module").then(
+        m => m.TestgramModule
+      )
   },
   {
     path: "login",

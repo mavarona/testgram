@@ -5,7 +5,7 @@ import { PostFormComponent } from "./post-form/post-form.component";
 
 const routes: Routes = [
   { path: "", component: ProfileComponent },
-  { path: "posts/add", component: PostFormComponent }
+  { path: "post/add", component: PostFormComponent }
 ];
 
 @NgModule({
