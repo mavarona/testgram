@@ -20,7 +20,7 @@ export class PostItemComponent implements OnInit {
 
   remove() {
     this.postService
-      .removePost(this.post._id)
+      .removePost(this.post.id)
       .subscribe(data =>
         this.messageService.setMsg({ msg: "Post Deleted", type: "success" })
       );

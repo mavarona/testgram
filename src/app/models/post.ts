@@ -1,5 +1,5 @@
 export class Post {
-  _id: number;
+  id: number;
   caption: string;
   description: string;
   imageUrl: string;
@@ -7,7 +7,7 @@ export class Post {
   date: Date;
 
   constructor(id: number, caption: string, imageUrl: string, description = "") {
-    this._id = id;
+    this.id = id;
     this.caption = caption;
     this.imageUrl = imageUrl;
     this.description = description;
