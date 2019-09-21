@@ -3,6 +3,7 @@ import { Post } from "src/app/models/post";
 import { baseUrl } from "src/app/config/api";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { map, filter } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -10,25 +11,36 @@ import { Observable } from "rxjs";
 export class PostService {
   apiUrl = baseUrl + "/posts";
 
-  posts: Array<Post> = new Array<Post>();
+  posts: Post[] = [];
 
-  constructor(private _http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getSinglePost(id): Observable<Post> {
-    return this._http.get<Post>(this.apiUrl + "/" + id);
+    return this.http.get<Post>(this.apiUrl + "/" + id);
   }
 
-  getPost(): Observable<Array<Post>> {
-    return this._http.get<Array<Post>>(this.apiUrl);
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl).pipe(
+      map(posts => {
+        return posts.map(post => {
+          post.id = post._id;
+          delete post._id;
+          return post;
+        });
+      })
+    ); /*.pipe(
+      filter((posts, index) => posts.filter(post => post.active))
+    )*/
   }
 
-  addPost(newPost: any): Observable<Post> {
-    newPost.active = true;
-    newPost.date = new Date();
-    return this._http.post<Post>(this.apiUrl, newPost);
+  addPost(data): Observable<Post> {
+    data.active = true;
+    data.date = new Date();
+
+    return this.http.post<Post>(this.apiUrl, data);
   }
 
-  removePost(id: number): Observable<any> {
-    return this._http.delete(this.apiUrl + "/" + id);
+  removePost(id: string): Observable<any> {
+    return this.http.delete(this.apiUrl + "/" + id);
   }
 }

@@ -23,7 +23,7 @@ export class PostListComponent implements OnInit {
   }
 
   getPost() {
-    this.postService.getPost().subscribe((posts: Array<Post>) => {
+    this.postService.getPosts().subscribe((posts: Array<Post>) => {
       this.posts = posts;
     });
   }

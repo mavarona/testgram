@@ -1,12 +1,12 @@
 export class Post {
-  id: number;
+  id: string;
   caption: string;
   description: string;
   imageUrl: string;
   active: boolean;
   date: Date;
 
-  constructor(id: number, caption: string, imageUrl: string, description = "") {
+  constructor(id: string, caption: string, imageUrl: string, description = "") {
     this.id = id;
     this.caption = caption;
     this.imageUrl = imageUrl;
