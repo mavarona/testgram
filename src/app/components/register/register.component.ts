@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { passwordMatch, mustContainSymbol } from "./register.validators";
+import { AuthService } from "src/app/services/auth.service";
+import { MessageService } from "src/app/services/message.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -10,7 +13,12 @@ import { passwordMatch, mustContainSymbol } from "./register.validators";
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private _builder: FormBuilder) {}
+  constructor(
+    private _router: Router,
+    private _builder: FormBuilder,
+    private _authService: AuthService,
+    private _messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.buildForm();
@@ -25,11 +33,7 @@ export class RegisterComponent implements OnInit {
         password: [
           "",
           {
-            validators: [
-              Validators.required,
-              Validators.minLength(6),
-              mustContainSymbol
-            ]
+            validators: [Validators.required, Validators.minLength(6)]
           }
         ],
         confirmPassword: ""
@@ -41,6 +45,15 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.registerForm.value);
+    this._authService.register(this.registerForm.value).subscribe(
+      () => {
+        this._messageService.setMsg({
+          msg: "Registration Successful! Please Login",
+          type: "success"
+        });
+        this._router.navigate(["/login"]);
+      },
+      () => {}
+    );
   }
 }

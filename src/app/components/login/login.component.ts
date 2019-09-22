@@ -20,13 +20,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    if (this._authService.login(this.model)) {
-      this._router.navigate(["/profile"]);
-    } else {
-      this._messageService.setMsg({
-        msg: "Invalid credentials",
-        type: "danger"
-      });
-    }
+    this._authService.login(this.model).subscribe(
+      () => {
+        this._router.navigate(["/profile"]);
+      },
+      err => {
+        this._messageService.setMsg({
+          msg: "Invalid Credentials.",
+          type: "danger"
+        });
+      }
+    );
   }
 }
